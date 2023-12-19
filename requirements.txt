@@ -1,0 +1,5 @@
+###### Requirements without Version Specifiers ######
+BeautifulSoup
+requests
+html
+csv
