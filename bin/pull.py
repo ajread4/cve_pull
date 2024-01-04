@@ -17,7 +17,7 @@ class CVEPuller():
 		return self.nvd_html
 
 	# Method to read an input CSV file
-	def read_csv(self,input_csv,desc):
+	def read_csv(self,input_csv,desc,date):
 		with open(input_csv, newline='') as file:
 			r=csv.reader(file,delimiter=' ')
 			for row in r: 
@@ -26,6 +26,8 @@ class CVEPuller():
 				print(self.findCVSS3(str(row[0])))
 				if desc: 
 					print(self.findDesc(str(row[0])))
+				if date:
+					print(self.findDate(str(row[0])))
 
 	# Method to find the CVSS Version 2 Score
 	def findCVSS2(self,input_CVE):
@@ -62,7 +64,11 @@ class CVEPuller():
 	def findDesc(self,input_CVE):
 		local_nvd=self.read_nvd(input_CVE)
 		return (local_nvd.find(attrs={"data-testid":'vuln-description'}).string)
-
+	
+	# Method to find the date of the CVE 
+	def findDate(self,input_CVE):
+		local_nvd=self.read_nvd(input_CVE)
+		return (local_nvd.find(attrs={"data-testid":'vuln-published-on'}).string)
 
 
 
