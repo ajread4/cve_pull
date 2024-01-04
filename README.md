@@ -55,6 +55,13 @@ CVE: CVE-2013-1609
 6.8 MEDIUM
 No CVSSv3 Scores
 ```
+4. Return the Published Date and scores for a CVE. 
+```
+$ python3 cve_pull.py -c CVE-2019-0708 -t
+CVSS2 Score: 10.0 HIGH
+CVSS3 Score: 9.8 CRITICAL
+Published Date: 05/16/2019
+```
 ## Author 
 All code was written by me, AJ Read, with inspiration from [MachineThing's](https://github.com/MachineThing) [cve_lookup](https://github.com/MachineThing/cve_lookup/tree/development). 
 - Twitter: [ajread3](https://twitter.com/ajread3)
